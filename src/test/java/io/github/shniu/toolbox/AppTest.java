@@ -12,6 +12,7 @@ class AppTest {
 
     @Test
     public void test() {
+        // test
         assertTrue(true);
     }
 }

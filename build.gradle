@@ -1,3 +1,5 @@
+apply from: 'publish.gradle'
+
 buildscript {
     repositories {
         maven {
@@ -101,3 +103,79 @@ allprojects {
     apply plugin: 'idea'
 }
 apply from: "$rootDir/gradle/config/scripts/idea.gradle"
+
+apply plugin: 'maven-publish'
+apply plugin: 'signing'
+
+task sourcesJar(type: Jar) {
+    from sourceSets.main.allJava
+    classifier = 'sources'
+}
+
+task javadocJar(type: Jar) {
+    from javadoc
+    classifier = 'javadoc'
+}
+
+tasks.withType(Javadoc).all {
+    enabled = false
+}
+
+publishing {
+
+    publications {
+        mavenJava(MavenPublication) {
+            // groupId = project.group
+            // artifactId = project.name
+            // version = project.version
+            // groupId,artifactId,version
+            from components.java
+            artifact sourcesJar
+            artifact javadocJar
+            pom {
+                name = 'Toolbox'
+                description = 'Toolboxes often used for daily development.'
+                url = 'https://github.com/shniu/toolbox'
+
+                licenses {
+                    license {
+                        name = 'The Apache License, Version 2.0'
+                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+
+                developers {
+                    developer {
+                        name = 'shniu'
+                        email = 'shaohan.niu.share@gmail.com'
+                    }
+                }
+
+                scm {
+                    url = 'https://github.com/shniu/toolbox'
+                    connection = 'scm:git:git://github.com/shniu/toolbox.git'
+                    developerConnection = 'scm:git:ssh://git@github.com:shniu/toolbox.git'
+                }
+            }
+        }
+    }
+
+    repositories {
+        maven {
+            url "https://oss.sonatype.org/service/local/staging/deploy/maven2"
+            credentials {
+                username sonatypeUsername
+                password sonatypePassword
+            }
+        }
+    }
+}
+
+signing {
+    sign publishing.publications.mavenJava
+}
+
+
+javadoc {
+    options.addStringOption("charset", "UTF-8")
+}

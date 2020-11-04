@@ -2,6 +2,8 @@ package io.github.shniu.toolbox.bytes;
 
 import org.junit.jupiter.api.Test;
 
+import java.nio.ByteBuffer;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -35,5 +37,13 @@ class DefaultByteDecoderTest {
         assertEquals(expectedB2, b2);
 
         assertThrows(RuntimeException.class, byteDecoder::readB3);
+    }
+
+    @Test
+    public void testByteBuffer() {
+        ByteBuffer byteBuffer = ByteBuffer.allocate(256);
+        byteBuffer.array();
+
+        ByteBuffer directBuffer = ByteBuffer.allocateDirect(256);
     }
 }

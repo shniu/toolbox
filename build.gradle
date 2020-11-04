@@ -13,10 +13,6 @@ buildscript {
         // classpath("gradle.plugin.com.palantir.gradle.docker:gradle-docker:0.13.0")
     }
 }
-//
-//plugins {
-//    id 'java'
-//}
 
 allprojects {
     apply plugin: 'java'
@@ -59,8 +55,6 @@ allprojects {
         hamcrestVersion = '2.1'
         assertJVersion = '3.13.2'
         mockitoVersion = '3.1.0'
-
-        xxlJobVersion = '2.2.0'
     }
 
     dependencies {

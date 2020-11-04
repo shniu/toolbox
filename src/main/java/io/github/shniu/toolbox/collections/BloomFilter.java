@@ -1,4 +1,4 @@
-package io.github.shniu.toolbox.hash;
+package io.github.shniu.toolbox.collections;
 
 /**
  * @author niushaohan

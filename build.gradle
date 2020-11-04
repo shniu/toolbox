@@ -58,12 +58,7 @@ allprojects {
     }
 
     dependencies {
-        // compile('org.springframework.cloud:spring-cloud-starter-openfeign')
-        
         implementation("com.google.guava:guava:$guavaVersion")
-
-        // implementation("org.springframework.boot:spring-boot-starter")
-        // implementation("org.springframework.boot:spring-boot-starter-web")
 
         compileOnly("org.projectlombok:lombok:$lombokVersion")
         annotationProcessor("org.projectlombok:lombok:$lombokVersion")
@@ -128,7 +123,7 @@ publishing {
             artifact javadocJar
             pom {
                 name = 'Toolbox'
-                description = 'Toolboxes often used for daily development.'
+                description = 'Toolboxes (core libraries) that make Java development more efficient, more rapid and less bug.'
                 url = 'https://github.com/shniu/toolbox'
 
                 licenses {

@@ -30,6 +30,16 @@ bits, bytes, caching, utilities for concurrency, json, Emoji, Excel, Pdf, and mo
 ### Dependency
 
 - [Guava](https://github.com/google/guava)
+- Apache Commons
+- Jackson2
+- jjwt
+- Mockito
+- DBUnit
+- RestAssured
+- Lombok
+- Feign
+- itextpdf
+- Tika
 
 ### Strings
 

@@ -40,6 +40,7 @@ bits, bytes, caching, utilities for concurrency, json, Emoji, Excel, Pdf, and mo
 - Feign
 - itextpdf
 - Tika
+- [JCTools](https://github.com/JCTools/JCTools)
 
 ### Strings
 
